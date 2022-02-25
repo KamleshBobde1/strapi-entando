@@ -2,11 +2,19 @@ module.exports = {
     routes: [
       {
         method: 'GET',
-        path: '/articles/customRoute',
-        handler: 'restaurant.alldesc',
+        path: '/custom/layout/:content_type',
+        handler: 'restaurant.getLayouts',
         config: {
           auth: false,
         },
       },
-    ],
+      {
+        method: 'GET',
+        path: '/custom/content-types/all',
+        handler: 'restaurant.getAllContentTypes',
+        config: {
+          auth: false,
+        },
+      },
+    ]
   };

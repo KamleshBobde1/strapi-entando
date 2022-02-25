@@ -32,22 +32,16 @@ module.exports = createCoreService('api::restaurant.restaurant', ({ strapi }) =>
     return strapi.entityService.findOne('api::restaurant.restaurant', entityId, this.getFetchParams(params));
   },
 
-// Method 4: Replacing a core service
-    async findByNameDesc() {
+// Method 4: Call custom query
+    async getAllLayoutDetails() {
         const result = strapi
-            .query("restaurants")
-            .find()
-            .sort({ name: "descending" });
+            .query("strapi_core_store_settings")
+            .find();
+            
             // strapi.query('restaurant').find({ _limit: 10, id_in: [1, 2] });
+            // select * from "strapi_core_store_settings";
+            console.log("===========", result);
         return result.map((entry) => entry.toObject());
     }
-  
-  
-  
-  
-  
-  
-  
-
 
 }));
